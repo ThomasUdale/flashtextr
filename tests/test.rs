@@ -43,4 +43,18 @@ mod keyword_tests {
         let result = x.extract_keywords("yrd".to_string());
         assert_eq!(result, vec!["yrd".to_string()])
     }
+
+    #[test]
+    fn test_add_keyword() {
+        let mut x = generate_processor(vec!["test"]);
+        assert_eq!(x.has_keyword("word"), false);
+        x.add_keyword("word");
+        assert_eq!(x.has_keyword("word"), true);
+    }
+
+    #[test]
+    fn test_initialise_flashtext() {
+        let x = generate_processor(vec!["word"]);
+        assert_eq!(x.has_keyword("word"), true);
+    }
 }

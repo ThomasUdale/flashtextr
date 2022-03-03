@@ -19,6 +19,7 @@ pub struct FlashText {
 #[pymethods]
 impl FlashText {
     #[new]
+    /// Generate a new flashtext processor.
     pub fn new(case_sensitive: bool) -> FlashText {
         FlashText{
             case_sensitive,
