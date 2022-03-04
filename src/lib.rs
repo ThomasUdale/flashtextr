@@ -48,7 +48,7 @@ impl FlashText {
     }
 
     pub fn extract_keywords(&self, sentence: String ) -> Vec<String> {
-        let mut sentence = if self.case_sensitive {
+        let sentence = if self.case_sensitive {
             sentence
         } else {
             sentence.to_lowercase()
@@ -56,7 +56,6 @@ impl FlashText {
         let mut extract_keywords: Vec<String> = vec![];
         let mut current_keyword_index = None;
         let mut current_level = &self.tree;
-        let mut curent_inner_level = &self.tree;
         let mut skip_word = false;
         for (i,char) in sentence.chars().enumerate() {
             if !char.is_alphanumeric() {
@@ -68,7 +67,7 @@ impl FlashText {
                     },
                 }
                 if let Some(node) = current_level.children.get(&char) {
-                    curent_inner_level = node;
+                    let mut curent_inner_level = node;
                     for inner_char in sentence[(i+1)..].chars() {
                         if !inner_char.is_alphanumeric() {
                             match curent_inner_level.word_end_index {
@@ -142,7 +141,6 @@ impl TrieNode {
                 node.word_end_index = Some(word_index);
             }
             node.add_keyword(&keyword[1..], word_index);
-            return
         } else {
             let mut new_node = TrieNode::new();
             if &keyword.chars().count() == &1 {
