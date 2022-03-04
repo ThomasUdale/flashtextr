@@ -14,6 +14,13 @@ The key idea behind Flashtext is the trie dictionary, which allows searching for
 - `cargo test` : run the test suite.
 - `maturin develop --release` : build a python library with the rust backend to the local python environment.
 
+## Python bindings:
+
+- `Flashtext` : initialize a new processor `x = Flashtext(case_sensitive: Bool)`
+- `x.add_keyword()`: add a new keyword
+- `x.has_keyword()`: checks if a keyword is in dict
+- `x.extract_keywords()`: finds instances of keywords in a string.
+
 ## Performance:
 
 Keywords  | FlashText | Regex | Flashtextr
