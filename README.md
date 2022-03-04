@@ -1,6 +1,8 @@
 # flashtextr
 rust implementation of Flashtext
 
+https://pypi.org/project/flashtextr/
+
 ## Introduction
 
 This project is a reimplementation of the [Flashtext Algorithm](https://arxiv.org/abs/1711.00046). It is based on the python code found [here](https://github.com/vi3k6i5/flashtext), many thanks vi3k615 for the inspiration!
